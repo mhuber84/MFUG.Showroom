@@ -1,0 +1,60 @@
+<f:layout name="Default" />
+
+<f:section name="Title">New project</f:section>
+
+<f:section name="Content">
+	<p>Just fill out the following form to create a new project:</p>
+
+	<f:form action="create" name="newProject">
+		<ol>
+			<li>
+				<label for="title">Title</label>
+				<f:form.textfield property="title" id="title" />
+			</li>
+		
+			<li>
+				<label for="description">Description</label>
+				<f:form.textfield property="description" id="description" />
+			</li>
+		
+			<li>
+				<label for="explanation">Explanation</label>
+				<f:form.textfield property="explanation" id="explanation" />
+			</li>
+		
+			<li>
+				<label for="link">Link</label>
+				<f:form.textfield property="link" id="link" />
+			</li>
+		
+			<li>
+				<label for="budget">Budget</label>
+				<f:form.textfield property="budget" id="budget" />
+			</li>
+		
+			<li>
+				<label for="author">Author</label>
+				<f:form.textfield property="author" id="author" />
+			</li>
+		
+			<li>
+				<label for="images">Images</label>
+				<f:form.textfield property="images" id="images" />
+			</li>
+		
+			<li>
+				<label for="comments">Comments</label>
+				<f:form.textfield property="comments" id="comments" />
+			</li>
+		
+			<li>
+				<label for="tags">Tags</label>
+				<f:form.textfield property="tags" id="tags" />
+			</li>
+		
+			<li>
+				<f:form.submit value="Create" />
+			</li>
+		</ol>
+	</f:form>
+</f:section>

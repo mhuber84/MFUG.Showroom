@@ -6,6 +6,7 @@ namespace MFUG\Showroom\Domain\Model;
  *                                                                        *
  *                                                                        */
 
+use Doctrine\ORM\Mapping as ORM;
 use TYPO3\FLOW3\Annotations as FLOW3;
 
 /**
@@ -25,12 +26,14 @@ class Project {
 	/**
 	 * The description
 	 * @var string
+	 * @ORM\Column(type="text")
 	 */
 	protected $description;
 
 	/**
 	 * The explanation
 	 * @var string
+	 * @ORM\Column(type="text")
 	 */
 	protected $explanation;
 
@@ -61,26 +64,39 @@ class Project {
 	/**
 	 * The author
 	 * @var \TYPO3\Party\Domain\Model\Person
+	 * @ORM\ManyToOne
 	 */
 	protected $author;
 
 	/**
 	 * The images
 	 * @var \Doctrine\Common\Collections\Collection<\MFUG\Showroom\Domain\Model\Image>
+	 * @ORM\OneToMany(mappedBy="project")
 	 */
 	protected $images;
 
 	/**
 	 * The comments
 	 * @var \Doctrine\Common\Collections\Collection<\MFUG\Showroom\Domain\Model\Comment>
+	 * @ORM\OneToMany(mappedBy="project")
 	 */
 	protected $comments;
 
 	/**
 	 * The tags
 	 * @var \Doctrine\Common\Collections\Collection<\MFUG\Showroom\Domain\Model\Tag>
+	 * @ORM\ManyToMany(inversedBy="projects")
 	 */
 	protected $tags;
+
+	/**
+	 * Don't forget to initialize collections in the constructor!
+	 */
+	public function __construct() {
+		$this->images = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+	}
 
 
 	/**
@@ -250,8 +266,28 @@ class Project {
 	 * @param \Doctrine\Common\Collections\Collection<\MFUG\Showroom\Domain\Model\Image> $images The Project's images
 	 * @return void
 	 */
-	public function setImages(\Doctrine\Common\Collections\Collection<\MFUG\Showroom\Domain\Model\Image> $images) {
+	public function setImages(\Doctrine\Common\Collections\Collection $images) {
 		$this->images = $images;
+	}
+
+	/**
+	 * Adds an Image to this Project
+	 *
+	 * @param \MFUG\Showroom\Domain\Model\Image $image
+	 * @return void
+	 */
+	public function addImage(\MFUG\Showroom\Domain\Model\Image $image) {
+		$this->images->add($image);
+	}
+
+	/**
+	 * Removes an Image from this Project
+	 *
+	 * @param \MFUG\Showroom\Domain\Model\Image $image
+	 * @return void
+	 */
+	public function removeImage(\MFUG\Showroom\Domain\Model\Image $image) {
+		$this->images->remove($image);
 	}
 
 	/**
@@ -269,8 +305,28 @@ class Project {
 	 * @param \Doctrine\Common\Collections\Collection<\MFUG\Showroom\Domain\Model\Comment> $comments The Project's comments
 	 * @return void
 	 */
-	public function setComments(\Doctrine\Common\Collections\Collection<\MFUG\Showroom\Domain\Model\Comment> $comments) {
+	public function setComments(\Doctrine\Common\Collections\Collection $comments) {
 		$this->comments = $comments;
+	}
+
+	/**
+	 * Adds a Comment to this Project
+	 *
+	 * @param \MFUG\Showroom\Domain\Model\Comment $comment
+	 * @return void
+	 */
+	public function addComment(\MFUG\Showroom\Domain\Model\Comment $comment) {
+		$this->comments->add($comment);
+	}
+
+	/**
+	 * Removes a Comment from this Project
+	 *
+	 * @param \MFUG\Showroom\Domain\Model\Comment $comment
+	 * @return void
+	 */
+	public function removeComment(\MFUG\Showroom\Domain\Model\Comment $comment) {
+		$this->comments->remove($comment);
 	}
 
 	/**
@@ -288,8 +344,28 @@ class Project {
 	 * @param \Doctrine\Common\Collections\Collection<\MFUG\Showroom\Domain\Model\Tag> $tags The Project's tags
 	 * @return void
 	 */
-	public function setTags(\Doctrine\Common\Collections\Collection<\MFUG\Showroom\Domain\Model\Tag> $tags) {
+	public function setTags(\Doctrine\Common\Collections\Collection $tags) {
 		$this->tags = $tags;
+	}
+
+	/**
+	 * Adds a Tag to this Project
+	 *
+	 * @param \MFUG\Showroom\Domain\Model\Tag $tag
+	 * @return void
+	 */
+	public function addTag(\MFUG\Showroom\Domain\Model\Tag $tag) {
+		$this->tags->add($tag);
+	}
+
+	/**
+	 * Removes a Tag from this Project
+	 *
+	 * @param \MFUG\Showroom\Domain\Model\Tag $tag
+	 * @return void
+	 */
+	public function removeTag(\MFUG\Showroom\Domain\Model\Tag $tag) {
+		$this->tags->remove($tag);
 	}
 
 }

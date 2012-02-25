@@ -1,0 +1,25 @@
+<f:layout name="Default" />
+
+<f:section name="Title">New tag</f:section>
+
+<f:section name="Content">
+	<p>Just fill out the following form to create a new tag:</p>
+
+	<f:form action="create" name="newTag">
+		<ol>
+			<li>
+				<label for="tag">Tag</label>
+				<f:form.textfield property="tag" id="tag" />
+			</li>
+		
+			<li>
+				<label for="projects">Projects</label>
+				<f:form.textfield property="projects" id="projects" />
+			</li>
+		
+			<li>
+				<f:form.submit value="Create" />
+			</li>
+		</ol>
+	</f:form>
+</f:section>

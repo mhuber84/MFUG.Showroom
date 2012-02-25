@@ -6,6 +6,7 @@ namespace MFUG\Showroom\Domain\Model;
  *                                                                        *
  *                                                                        */
 
+use Doctrine\ORM\Mapping as ORM;
 use TYPO3\FLOW3\Annotations as FLOW3;
 
 /**
@@ -25,8 +26,16 @@ class Tag {
 	/**
 	 * The projects
 	 * @var \Doctrine\Common\Collections\Collection<\MFUG\Showroom\Domain\Model\Project>
+	 * @ORM\ManyToMany(mappedBy="tags")
 	 */
 	protected $projects;
+
+	/**
+	 * Don't forget to initialize collections in the constructor!
+	 */
+	public function __construct(){
+		$this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+	}
 
 
 	/**
@@ -63,8 +72,28 @@ class Tag {
 	 * @param \Doctrine\Common\Collections\Collection<\MFUG\Showroom\Domain\Model\Project> $projects The Tag's projects
 	 * @return void
 	 */
-	public function setProjects(\Doctrine\Common\Collections\Collection<\MFUG\Showroom\Domain\Model\Project> $projects) {
+	public function setProjects(\Doctrine\Common\Collections\Collection $projects) {
 		$this->projects = $projects;
+	}
+
+	/**
+	 * Adds a Project to this Tag
+	 *
+	 * @param \MFUG\Showroom\Domain\Model\Project $project
+	 * @return void
+	 */
+	public function addProject(\MFUG\Showroom\Domain\Model\Project $project) {
+		$this->projects->add($project);
+	}
+
+	/**
+	 * Removes a Project from this Tag
+	 *
+	 * @param \MFUG\Showroom\Domain\Model\Project $project
+	 * @return void
+	 */
+	public function removeProject(\MFUG\Showroom\Domain\Model\Project $project) {
+		$this->projects->remove($project);
 	}
 
 }

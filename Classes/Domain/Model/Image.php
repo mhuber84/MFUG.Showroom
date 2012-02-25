@@ -6,6 +6,7 @@ namespace MFUG\Showroom\Domain\Model;
  *                                                                        *
  *                                                                        */
 
+use Doctrine\ORM\Mapping as ORM;
 use TYPO3\FLOW3\Annotations as FLOW3;
 
 /**
@@ -37,6 +38,7 @@ class Image {
 	/**
 	 * The project
 	 * @var \MFUG\Showroom\Domain\Model\Project
+	 * @ORM\ManyToOne(inversedBy="images")
 	 */
 	protected $project;
 

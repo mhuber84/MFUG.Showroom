@@ -6,6 +6,7 @@ namespace MFUG\Showroom\Domain\Model;
  *                                                                        *
  *                                                                        */
 
+use Doctrine\ORM\Mapping as ORM;
 use TYPO3\FLOW3\Annotations as FLOW3;
 
 /**
@@ -19,6 +20,7 @@ class Comment {
 	/**
 	 * The comment text
 	 * @var string
+	 * @ORM\Column(type="text")
 	 */
 	protected $commentText;
 
@@ -31,6 +33,7 @@ class Comment {
 	/**
 	 * The author
 	 * @var \TYPO3\Party\Domain\Model\Person
+	 * @ORM\ManyToOne
 	 */
 	protected $author;
 
@@ -43,6 +46,7 @@ class Comment {
 	/**
 	 * The project
 	 * @var \MFUG\Showroom\Domain\Model\Project
+	 * @ORM\ManyToOne(inversedBy="comments")
 	 */
 	protected $project;
 

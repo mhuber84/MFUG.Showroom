@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://typo3.org/ns/2008/flow3/package" version="1.0">
 	<key>MFUG.Showroom</key>
-	<title/>
-	<description/>
-	<version/>
+	<title>MFUG.Showroom</title>
+	<description>A FLOW3 package to present FLOW3 packages. With this package we, the Munich FLOW3 Usergroup (MFUG) want to learn more about FLOW3.</description>
+	<version>0.0.1</version>
 </package>

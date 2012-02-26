@@ -1,0 +1,22 @@
+Wichtige Befehle vom 07.02.2012
+
+Hilfe zu allen Befehlen auf der Kommandozeile:
+./flow3 help
+
+Detailliertere Hilfe zu einem bestimmten Befehl (hier "package:list"):
+./flow3 help package:list
+
+TYPO3.Welcome Package deaktivieren:
+./flow3 package:deactivate TYPO3.Welcome
+Subroutes in Routes.yaml entfernen
+
+Die Befehle die wir beim Erstellen unseres MFUG.Showroom-Packages verwendet haben finden sich in 
+den git-Kommentaren!
+
+Die Datenbank-Verbindung wird in der Settings.yaml konfiguriert.
+
+Vor dem Anlegen der Datenbanktabellen anhand der vorhandenen Models sollten diese validiert werden:
+./flow3 doctrine:validate
+
+Anschließend können die Tabellen erzeugt werden:
+./flow3 doctrine:create

@@ -1,0 +1,11 @@
+TYPO3:
+  FLOW3:
+    persistence:
+      backendOptions:
+        driver: 'pdo_sqlite'
+        dbname: 'mfug_showroom'
+        path: '%FLOW3_PATH_DATA%Persistent/mfug_showroom.db'
+        user: 'demo'
+        password: 'demo'
+        doctrine:
+          sqlLogger: 'TYPO3\FLOW3\Persistence\Doctrine\Logging\SqlLogger'

@@ -3,6 +3,7 @@
 <f:section name="Title">A list of projects</f:section>
 
 <f:section name="Content">
+	<f:flashMessages />
 	<f:if condition="{projects}">
 		<f:then>
 			<ul>
@@ -19,5 +20,10 @@
 			<p>No projects created yet.</p>
 		</f:else>
 	</f:if>
-	<p><f:link.action action="new">Create a new project</f:link.action></p>
+	<p>
+		<f:link.action action="new">Create a new project</f:link.action>
+	</p>
+	<p>
+		<f:link.action action="setup">Create dummy projects</f:link.action>
+	</p>
 </f:section>

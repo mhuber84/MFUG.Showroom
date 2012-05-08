@@ -12,7 +12,7 @@ use TYPO3\FLOW3\MVC\Controller\ActionController;
 use \MFUG\Showroom\Domain\Model\Project;
 
 /**
- * Project controller for the MFUG.Showroom package 
+ * Project controller for the MFUG.Showroom package
  *
  * @FLOW3\Scope("singleton")
  */
@@ -94,6 +94,41 @@ class ProjectController extends ActionController {
 	public function deleteAction(Project $project) {
 		$this->projectRepository->remove($project);
 		$this->addFlashMessage('Deleted a project.');
+		$this->redirect('index');
+	}
+
+	/**
+	 * @return void
+	 */
+	public function setupAction() {
+	}
+
+	/**
+	 * @param integer $amount
+	 */
+	public function createDummiesAction($amount=10){
+
+		for($i=0; $i<$amount; $i++){
+
+			$project = new \MFUG\Showroom\Domain\Model\Project();
+			$project->setBudget(($i+1)*103.76);
+			$project->setDescription('projectdescription'.$i);
+			$project->setTitle('projecttitle'.$i);
+			$project->setExplanation('explanation'.$i);
+
+			$image = new \MFUG\Showroom\Domain\Model\Image();
+			$image->setAltText('imagealt' . $i);
+			$image->setFile('imagefile' . $i);
+			$image->setTitleText('imagetitle' . $i);
+			$image->setProject($project);
+
+			$project->addImage($image);
+
+			$this->projectRepository->add($project);
+		}
+
+		$message = new \TYPO3\FLOW3\Error\Message('dummies created');
+		$this->flashMessageContainer->addMessage($message);
 		$this->redirect('index');
 	}
 

@@ -12,7 +12,7 @@ use TYPO3\FLOW3\MVC\Controller\ActionController;
 use \MFUG\Showroom\Domain\Model\Tag;
 
 /**
- * Tag controller for the MFUG.Showroom package 
+ * Tag controller for the MFUG.Showroom package
  *
  * @FLOW3\Scope("singleton")
  */

@@ -132,6 +132,17 @@ class ProjectController extends ActionController {
 		$this->redirect('index');
 	}
 
+	/**
+	 * @return void
+	 */
+	public function deleteAllAction(){
+		$this->projectRepository->removeAll();
+
+		$message = new \TYPO3\FLOW3\Error\Message('dummies deleted');
+		$this->flashMessageContainer->addMessage($message);
+		$this->redirect('index');
+	}
+
 }
 
 ?>

@@ -51,13 +51,13 @@ class Project {
 
 	/**
 	 * The start date
-	 * @var \Doctrine\Common\DateTime\DateTime
+	 * @var \DateTime
 	 */
 	protected $startDate;
 
 	/**
 	 * The end date
-	 * @var \Doctrine\Common\DateTime\DateTime
+	 * @var \DateTime
 	 */
 	protected $endDate;
 
@@ -197,7 +197,7 @@ class Project {
 	/**
 	 * Get the Project's start date
 	 *
-	 * @return \Doctrine\Common\DateTime\DateTime The Project's start date
+	 * @return \DateTime The Project's start date
 	 */
 	public function getStartDate() {
 		return $this->startDate;
@@ -206,17 +206,17 @@ class Project {
 	/**
 	 * Sets this Project's start date
 	 *
-	 * @param \Doctrine\Common\DateTime\DateTime $startDate The Project's start date
+	 * @param \DateTime $startDate The Project's start date
 	 * @return void
 	 */
-	public function setStartDate(\Doctrine\Common\DateTime\DateTime $startDate) {
+	public function setStartDate(\DateTime $startDate) {
 		$this->startDate = $startDate;
 	}
 
 	/**
 	 * Get the Project's end date
 	 *
-	 * @return \Doctrine\Common\DateTime\DateTime The Project's end date
+	 * @return \DateTime The Project's end date
 	 */
 	public function getEndDate() {
 		return $this->endDate;
@@ -225,10 +225,10 @@ class Project {
 	/**
 	 * Sets this Project's end date
 	 *
-	 * @param \Doctrine\Common\DateTime\DateTime $endDate The Project's end date
+	 * @param \DateTime $endDate The Project's end date
 	 * @return void
 	 */
-	public function setEndDate(\Doctrine\Common\DateTime\DateTime $endDate) {
+	public function setEndDate(\DateTime $endDate) {
 		$this->endDate = $endDate;
 	}
 

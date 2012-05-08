@@ -26,7 +26,7 @@ class Comment {
 
 	/**
 	 * The creation date
-	 * @var \Doctrine\Common\DateTime\DateTime
+	 * @var \DateTime
 	 */
 	protected $creationDate;
 
@@ -73,7 +73,7 @@ class Comment {
 	/**
 	 * Get the Comment's creation date
 	 *
-	 * @return \Doctrine\Common\DateTime\DateTime The Comment's creation date
+	 * @return \DateTime The Comment's creation date
 	 */
 	public function getCreationDate() {
 		return $this->creationDate;
@@ -82,10 +82,10 @@ class Comment {
 	/**
 	 * Sets this Comment's creation date
 	 *
-	 * @param \Doctrine\Common\DateTime\DateTime $creationDate The Comment's creation date
+	 * @param \DateTime $creationDate The Comment's creation date
 	 * @return void
 	 */
-	public function setCreationDate(\Doctrine\Common\DateTime\DateTime $creationDate) {
+	public function setCreationDate(\DateTime $creationDate) {
 		$this->creationDate = $creationDate;
 	}
 
